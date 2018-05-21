@@ -35,3 +35,12 @@ docker exec -it softether /usr/vpnserver/vpncmd /tools
 docker run --rm -it --net=host kyokuheki/softether config
 docker run --rm -it --net=host kyokuheki/softether tools
 ```
+
+## docker-compose
+```
+docker-compose up --build --force-recreate -d
+docker-compose ps
+docker-compose stop
+docker-compose rm -v -f
+docker-compose down
+```
