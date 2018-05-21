@@ -2,7 +2,7 @@ version: '3'
 
 services:
   softether:
-    image: kyokuheki/softether
+    image: softether
     build: .
     ports:
       - "443:443"
