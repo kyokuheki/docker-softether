@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  softether:
+    image: kyokuheki/softether
+    build: .
+    ports:
+      - "443:443"
+      - "992:992"
+      - "5555:5555"
+      - "1194:1194"
+      - "1194:1194/udp"
+      - "500:500/udp"
+      - "4500:4500/udp"
+      - "1701:1701/udp"
+    volumes:
+      - /docker/softether/etc:/etc/vpnserver
+      - /docker/softether/log:/var/log/vpnserver
+    devices:
+      - "/dev/net/tun"
+    cap_add:
+      - NET_ADMIN
+    network_mode: "host"
+    restart: always
+    logging:
+      driver: "json-file" # defaults if not specified
+      options:
+        max-size: "100m"
+        max-file: "3"
